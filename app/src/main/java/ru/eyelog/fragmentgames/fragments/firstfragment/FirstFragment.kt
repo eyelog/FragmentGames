@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.commit
 import dagger.hilt.android.AndroidEntryPoint
 import ru.eyelog.fragmentgames.R
 import ru.eyelog.fragmentgames.fragments.firstfragment.subfragment.SubFragment00
@@ -77,8 +78,8 @@ class FirstFragment : Fragment() {
         fragment: Fragment,
         tag: String
     ) {
-        parentFragmentManager.beginTransaction()
-            .add(res, fragment, tag)
-            .commit()
+        parentFragmentManager.commit {
+            add(res, fragment, tag)
+        }
     }
 }
