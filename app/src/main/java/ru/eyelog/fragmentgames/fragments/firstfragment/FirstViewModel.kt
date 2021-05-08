@@ -1,9 +1,7 @@
 package ru.eyelog.fragmentgames.fragments.firstfragment
 
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.ViewModel
+import android.util.Log
+import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -64,5 +62,35 @@ class FirstViewModel @Inject constructor() : ViewModel(), LifecycleObserver {
             3 -> _sample03LiveData.value = data
             else -> _sample00LiveData.value = data
         }
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    private fun onCreate(){
+        Log.i("Logcat ", "ViewModel onCreate")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    private fun onStart(){
+        Log.i("Logcat ", "ViewModel onStart")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    private fun onResume(){
+        Log.i("Logcat ", "ViewModel onResume")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    private fun onPause(){
+        Log.i("Logcat ", "ViewModel onPause")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    private fun onStop(){
+        Log.i("Logcat ", "ViewModel onStop")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    private fun onDestroy(){
+        Log.i("Logcat ", "ViewModel onDestroy")
     }
 }
