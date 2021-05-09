@@ -7,4 +7,7 @@
 
     <string name="start">Start</string>
     <string name="stop">Stop</string>
+
+    <string name="minus">Minus</string>
+    <string name="plus">Plus</string>
 </resources>
